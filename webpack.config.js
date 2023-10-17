@@ -11,23 +11,23 @@ module.exports = {
       template: '!!html-loader!templates/index.html'
     })
   ],
-  devtool: 'sourcemap',
+  devtool: 'source-map', // Modification de la propriété devtool
   mode: "development",
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader' // Modification de la propriété "loader" à "use"
       },
       {
         test: /\.s?css$/,
         exclude: /node_modules/,
-        loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ] // Modification de la propriété "loaders" à "use"
       },
       {
         test: /\.html$/,
-        loader: 'html-loader'
+        use: 'html-loader' // Modification de la propriété "loader" à "use"
       },
     ]
   },
