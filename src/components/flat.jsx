@@ -11,7 +11,7 @@ class Flat extends Component {
           {this.props.flat.price}
           {this.props.flat.priceCurrency}
         </div>
-        <div className="card-descritpion">
+        <div className="card-description">
           <h2>
             {this.props.flat.name}
           </h2>

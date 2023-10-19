@@ -11,27 +11,33 @@ module.exports = {
       template: '!!html-loader!templates/index.html'
     })
   ],
-  devtool: 'source-map', // Modification de la propriété devtool
-  mode: "development",
+  devtool: 'source-map',
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: 'babel-loader' // Modification de la propriété "loader" à "use"
+        use: 'babel-loader'
       },
       {
         test: /\.s?css$/,
         exclude: /node_modules/,
-        use: [ 'style-loader', 'css-loader', 'sass-loader' ] // Modification de la propriété "loaders" à "use"
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.html$/,
-        use: 'html-loader' // Modification de la propriété "loader" à "use"
+        use: 'html-loader'
       },
     ]
   },
   resolve: {
-    extensions: [ '.js', '.jsx' ]
-  }
+    extensions: ['.js', '.jsx'],
+    fallback: {
+      path: require.resolve('path-browserify'), // Ajoutez cette ligne
+      os: require.resolve('os-browserify/browser'),
+      crypto: require.resolve('crypto-browserify'),
+      fs: false,
+    },
+  },
 };

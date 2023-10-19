@@ -15,13 +15,9 @@ body {
   display: flex;
 }
 
-.left-scene .right-scene {
-  width: 50vw;
-}
-
 .map-container {
   height: 100vh;
-  width: 40%;
+  width: 50%;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
 }

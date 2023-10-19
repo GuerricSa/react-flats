@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
+// import dotenv from 'dotenv';
+import GoogleMapReact from 'google-map-react';
 import FlatList from './flat_list';
 import flats from '../../data/flats';
-import GoogleMapReact from 'google-map-react';
 import Marker from './marker';
-
-const apiKey = 'AIzaSyDgBQmTPYcwUAvjh-_WyKwYkr26EKrgZKM';
 
 class App extends Component {
   constructor(props) {
@@ -28,16 +27,16 @@ class App extends Component {
   }
 
   render() {
+    const apiKey = 'AIzaSyDgBQmTPYcwUAvjh-_WyKwYkr26EKrgZKM';
+
     return (
       <div>
-        <div className="left-scene">
-          <FlatList
-            flats={this.state.flats}
-            selectFlat={this.selectFlat}
-            selectedFlat={this.state.selectedFlat}
-          />
-        </div>
-        <div className="right-scene" style={{ height: '100vh', width: '100%' }}>
+        <FlatList
+          flats={this.state.flats}
+          selectFlat={this.selectFlat}
+          selectedFlat={this.state.selectedFlat}
+        />
+        <div className="map-container">
           <GoogleMapReact
             bootstrapURLKeys={{ key: apiKey }}
             defaultCenter={this.center()}
